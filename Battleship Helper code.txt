@@ -1,0 +1,162 @@
+package codes;
+
+import java.util.Scanner;
+
+public class Battleship_Helper {
+	
+	static Scanner input = new Scanner(System.in);
+	public static int LENGTH = 10;
+	public static int WIDTH = 10;
+	public static int[][] GRID = new int[LENGTH][WIDTH];
+	public static boolean[][] HIT = new boolean[LENGTH][WIDTH];
+
+	public static void main(String[] args) {
+		int currentCoordX = 0;
+		int currentCoordY = 0;
+		int number = 0;
+		boolean exit = false;
+		
+		System.out.println("Welcome to the battleship helper!");
+		
+		do{
+			System.out.println();
+			System.out.println("Here is your board: ");
+			System.out.println();
+			display();
+			System.out.println();
+			System.out.println();
+			currentCoordX = shootX();
+			currentCoordY = shootY();
+			System.out.println("You should shooot at (X,Y)): (" + currentCoordX + "," + currentCoordY + ")");
+			System.out.println("Did you hit your target?");
+			hit(currentCoordX, currentCoordY);
+			System.out.println("Press Enter to display your new grid");
+			enterToContinue();
+			display();
+		}while (exit == true);
+			
+	}
+	
+	public static int shootX(){
+		
+		
+		return 0;
+	}
+	
+	public static int shootY(){
+		
+		
+		return 0;
+	}
+	
+	public static boolean hit(int X, int Y){
+		if(ynQuestion() == "y"){
+			
+		}
+		
+		return false;
+	}
+
+
+	public static void replaceCoord(int coordX, int coordY, int number) {
+		GRID[coordY][coordX] = number;
+	}
+
+	public static void display() {
+		System.out.print("/ X");
+		displayXLine();
+		System.out.println();
+
+		for (int x = 0; x < LENGTH; x++) {
+			displayYLine(x);
+			for (int y = 0; y < WIDTH; y++) {
+
+				System.out.print(GRID[x][y] + " ");
+			}
+			System.out.println();
+		}
+
+	}
+
+	public static void displayXLine() {
+
+		for (int x = 0; x < WIDTH; x++) {
+			System.out.print(" " + x);
+		}
+
+		System.out.println("		Hits display as X");
+		System.out.print("Y  ");
+		
+		for (int x = 0; x < WIDTH; x++) {
+			System.out.print(" -");
+		}
+		
+		System.out.print("		Misses display as ~");
+
+	}
+
+	public static void displayYLine(int counter) {
+		System.out.print(counter + " | ");
+		counter++;
+	}
+
+	public static int numberInput(int min, int max) {
+		boolean success = true;
+		int number = 0;
+
+		do {
+			success = true;
+
+			try {
+				number = input.nextInt();
+			} catch (Exception e) {
+				input.nextLine();
+				success = false;
+			}
+			if (number < min || number > max) {
+				System.out.println("Invalid Data. Please enter only the numbers specified.");
+			}
+
+		} while (number < min || number > max || success == false);
+		return number;
+	}
+	
+	public static String ynQuestion() {
+
+		String ynInput;
+		boolean ynCheck = true;
+
+		do {
+			System.out.println("y/n");
+			ynInput = input.next();
+			System.out.println(ynInput);
+
+			ynCheck = true;
+
+			if (ynInput.equals("n")) {
+				ynCheck = true;
+
+			} else if (ynInput.equals("y")) {
+				ynCheck = true;
+			} else {
+				System.out.println("Invalid data!");
+				System.out.println("Please enter only y or n");
+				ynCheck = false;
+			}
+		} while (ynCheck == false);
+		return ynInput;
+	}
+
+	public static void enterToContinue() {
+		System.out.println("Press Enter to continue...");
+		try {
+			System.in.read();
+		} catch (Exception e) {}
+	}
+	
+	public static int RNG(int min, int max){
+		int random = (int) (Math.random() * (max - min + 1) + min);
+		return random;
+	}
+
+}
