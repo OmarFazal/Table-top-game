@@ -36,69 +36,6 @@ public class Battleship_Helper {
 		}while (exit == true);
 			
 	}
-	
-	public static int shootX(){
-		
-		
-		return 0;
-	}
-	
-	public static int shootY(){
-		
-		
-		return 0;
-	}
-	
-	public static boolean hit(int X, int Y){
-		if(ynQuestion() == "y"){
-			
-		}
-		
-		return false;
-	}
-
-
-	public static void replaceCoord(int coordX, int coordY, int number) {
-		GRID[coordY][coordX] = number;
-	}
-
-	public static void display() {
-		System.out.print("/ X");
-		displayXLine();
-		System.out.println();
-
-		for (int x = 0; x < LENGTH; x++) {
-			displayYLine(x);
-			for (int y = 0; y < WIDTH; y++) {
-
-				System.out.print(GRID[x][y] + " ");
-			}
-			System.out.println();
-		}
-
-	}
-
-	public static void displayXLine() {
-
-		for (int x = 0; x < WIDTH; x++) {
-			System.out.print(" " + x);
-		}
-
-		System.out.println("		Hits display as X");
-		System.out.print("Y  ");
-		
-		for (int x = 0; x < WIDTH; x++) {
-			System.out.print(" -");
-		}
-		
-		System.out.print("		Misses display as ~");
-
-	}
-
-	public static void displayYLine(int counter) {
-		System.out.print(counter + " | ");
-		counter++;
-	}
 
 	public static int numberInput(int min, int max) {
 		boolean success = true;
